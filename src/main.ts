@@ -1,15 +1,15 @@
-const fileInput = document.getElementById('file') as HTMLInputElement
+import { Controller } from "./controller";
+import { Service } from "./service";
+import { View } from "./view";
 
-fileInput.addEventListener('change', (event) => {
-  
-  const reader = new FileReader()
 
-  const file = (event.target as HTMLInputElement).files?.[0]
+const worker = new Worker('./src/worker.ts', { 
+  type: 'module' // type module only work in google chrome
+});
 
-  reader.readAsText(file!)
 
-  reader.onload = (loadEvent) => {
-    const result = loadEvent.target?.result
-    console.log(result)
-  }
+Controller.init({
+  service: new Service(),
+  view: new View(),
+  worker,
 })

@@ -1,0 +1,250 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f3f3f3;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+#parse-card-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#parse-card {
+  position: relative;
+  width: min(600px, 90%);
+  box-shadow: 0px 0px 8px 0px rgba(26, 26, 26, 0.04);
+  padding: 42px 32px;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+}
+
+#form-title {
+  position: relative;
+  top: 4px;
+  font-size: 32px;
+  text-align: center;
+  font-weight: 700;
+}
+
+#label-csv-file {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f4f6ff;
+  background: #6e7dd1;
+
+  border-radius: 4px;
+  padding: 16px;
+  gap: 8px;
+  width: 100%;
+  font-weight: 600;
+}
+
+#csv-upload-icon {
+  font-size: 24px;
+}
+
+#csv-file {
+  display: none;
+}
+
+#csv-form button[type="submit"] {
+  margin: 28px auto 0;
+  display: block;
+  border: 1px solid #6e7dd1;
+  background: transparent;
+  font-family: inherit;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all 100ms ease;
+}
+
+#csv-form button[type="submit"]:hover {
+  background: #6e7dd1;
+  color: #f4f6ff;
+}
+
+#selected-file {
+  padding: 16px 0;
+
+  display: none;
+}
+
+#file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#file-item-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e7dd1;
+  gap: 4px;
+}
+
+#file-item-title-container span {
+  font-size: 16px;
+}
+
+#file-size {
+  color: #717171;
+  font-size: 14px;
+}
+
+@keyframes show-left {
+  0% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#selected-file.show {
+  display: flex;
+  animation: 400ms show-left ease;
+}
+
+#results {
+  margin-top: 24px;
+  padding: 32px 0 0 0;
+  border-top: 1px solid #dedede;
+  display: none;
+}
+
+#results.show {
+  display: block;
+}
+
+#results #status {
+  color: #9c9c9c;
+}
+
+#results #status.completed {
+  color: #28a745;
+}
+
+#results #status.error {
+  color: #dc3545;
+}
+
+#progress {
+  display: inline-block;
+  border-radius: 8px;
+  background: #fff;
+  width: 50%;
+}
+
+#progress::-webkit-progress-bar {
+  background-color: #dedede;
+  border-radius: 8px;
+}
+
+#progress::-webkit-progress-value {
+  border-radius: 8px;
+  transition: width 400ms ease;
+  background-color: #7f8de0;
+}
+
+#progress.completed::-webkit-progress-value {
+  background-color: #28a745;
+}
+#progress.error::-webkit-progress-value {
+  background-color: #dc3545;
+}
+
+#progress-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+#progress-label {
+  font-size: 14px;
+  color: #404040;
+}
+
+#time-elapsed {
+  margin-top: 4px;
+}
+
+#debug {
+  width: 100%;
+  background: #ededed;
+  padding: 24px 16px;
+  border-radius: 8px;
+  margin-top: 24px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+#dubug-area {
+  font-family: monospace;
+  font-size: 16px;
+  color: #2e2e2e;
+}
+
+#download-json {
+  display: none;
+  text-decoration: none;
+}
+
+#download-json.show {
+  display: block;
+}
+
+#download-json button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #6e7dd1;
+  color: #f4f6ff;
+  border: none;
+
+  font-family: inherit;
+  padding: 8px 16px;
+
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all 100ms ease;
+
+  margin: 24px auto 0;
+}
+
+#download-json button:hover {
+  filter: brightness(105%);
+}
